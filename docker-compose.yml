@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: palesa_business_validator_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: business_validator
+      POSTGRES_USER: business_user
+      POSTGRES_PASSWORD: business_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - business_validator_data:/var/lib/postgresql/data
+
+volumes:
+  business_validator_data:
